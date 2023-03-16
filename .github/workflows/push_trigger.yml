@@ -73,12 +73,12 @@ jobs:
 #          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }} # required
 #        if: failure() # Pick up events even if the job fails or is canceled.
         
-#  sonar_analysis:
-#    runs-on: ubuntu-latest
-#    env:
-#      NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
-#      SERVICE_NAME: pmp-ui
-#      SERVICE_LOCATION: pmp-ui
+  sonar_analysis:
+    runs-on: ubuntu-latest
+    env:
+      NAMESPACE: ${{ secrets. dev_namespace_docker_hub }}
+      SERVICE_NAME: pmp-ui
+      SERVICE_LOCATION: pmp-ui
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -115,9 +115,9 @@ jobs:
  #              sonar.test.inclusions=**/*.spec.ts
  #              sonar.typescript.lcov.reportPaths=coverage/lcov.info" >> sonar-project.properties
  #         npm install sonar-scanner && npm run sonar
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+ #       env:
+ #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+ #         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           
 #      - uses: 8398a7/action-slack@v3
 #        with:
@@ -125,4 +125,4 @@ jobs:
 #          fields: repo,message,commit,workflow,job # selectable (default: repo,message)
 #        env:
 #          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_DEVOPS_WEBHOOK }} # required
-#        if: failure() # Pick up events even if the job fails or is canceled        
+#        if: failure() # Pick up events even if the job fails or is canceled.        
